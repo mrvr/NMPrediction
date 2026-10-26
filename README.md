@@ -45,6 +45,28 @@ chmod +x bin/nmprediction
 ./bin/nmprediction data.csv --decision Outcome
 ```
 
+## Test datasets
+
+CSV files for a trial run are in `datasets/`. Run these from the repository directory.
+
+A small example, with the decision in the last column:
+
+```bash
+python3.14 bin/nmprediction datasets/data.txt
+```
+
+Dengue datasets:
+
+```bash
+python3.14 bin/nmprediction datasets/dataset.csv --decision Outcome
+python3.14 bin/nmprediction datasets/Dengue_clinical_dataset.csv --decision Outcome
+python3.14 bin/nmprediction datasets/Dengue_diseases_dataset_modified.csv --decision dengue_label
+python3.14 bin/nmprediction datasets/Dengue_hematology.csv --decision Result
+python3.14 bin/nmprediction datasets/dengue.csv --decision Dengue
+```
+
+`datasets/dengue.csv` has 1,000,000 rows. The other dengue files are about 500 to 1,500 rows and are the practical tests. Columns named `Name` or `Id` are not used as features.
+
 ## Library
 
 `lib/denguecad/` holds the compiled library used by the executable. You do not need to set `PYTHONPATH` to run `bin/nmprediction`.
